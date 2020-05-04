@@ -43,7 +43,9 @@ by editing this file (no more that a few lines)
 
 #### Answer
 
-_write your answer here_
+ Here in example.cpp we used lock_guard instead of lock and unlock. A lock-guard is an item that deals with a mutex object by keeping it blocked all the time.
+ The purpose of lock_guard is simply to make locking and unlocking the mutex simpler. For instance, on the off chance that you manually lock/unlock, yet your method tosses an exception some place in the middle, 
+it will never come to the unlock statement.Therefore, doing it the manual way you need to ensure that the mutex is constantly unlocked. Then again, the lock_guard object gets destroyed automatically at whatever point we go out of scope of the method
 
 ## Part 2
 
@@ -52,7 +54,12 @@ _write your answer here_
 What is the difference between ``` std::mutex ``` and ``` std::shared_mutex ```?
 Write your answer below
 #### Answer
-_write your answer here_
+A Mutex is a mutually exclusive flag. It goes about as a guard to a piece of code permitting one thread in and blocking access to all others. 
+This guarantees the code being controlled may be hit by only one thread at a time. However, The shared_mutex class is a synchronization crude that can be utilized to shield shared
+information (data) from being all accessed to by many threads at the same time. Also, a shared_mutex has two degrees of access: 
+Shared - many threads can share ownership of the same mutex. 
+Exclusive - just one thread can own the mutex.
+
 
 ### Implementation
 
@@ -68,7 +75,9 @@ Describe condition variables in C++ and how they used (a few lines)
 
 #### Answer
 
-_write your answer here_
+A condition variable is an item ready to block the thread until notified or demanded to continue. It utilizes a unique_lock (over a mutex) 
+to lock the thread when one of its wait methods is called.The thread stays blocked then it will be woken by another thread that calls a notify function (for example: notify all)
+ on the equivalent condition_variable object.
 
 ### Implementation 
 

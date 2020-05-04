@@ -6,7 +6,7 @@
 #include <random>
 
 //uncomment line below to get correct result
-//#define SYNC
+#define SYNC
 int y = 0;
 int num_iterations = 100000;
 int num_trials=10;
